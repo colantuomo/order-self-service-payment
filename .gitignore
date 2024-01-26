@@ -1,0 +1,20 @@
+node_modules/
+
+# development
+.eslintcache
+
+# testing
+/coverage
+
+@@ -21,3 +24,6 @@
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#editors
+tags
+
+# build
+build/
+dist/
+*.env

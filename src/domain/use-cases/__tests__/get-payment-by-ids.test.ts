@@ -1,20 +1,19 @@
 import { describe, test, expect, vi } from 'vitest'
 import { repository } from '../../../infraestructure/repository/payment-repository';
 import { getPaymentById } from '../get-payment-by-id';
-import { PaymentStatus } from '@prisma/client';
 
 const SUCCESS_DATA = {
     id: 'id-123',
     createdAt: new Date(),
     orderId: 'order-id-123',
     amount: 50,
-    status: PaymentStatus.PENDING,
+    status: "PENDING",
     externalPaymentId: 'external-payment-id-123',
     updatedAt: new Date(),
 }
 
 function spySuccesfullRequest() {
-    vi.spyOn(repository, 'getPaymentById').mockResolvedValue(SUCCESS_DATA);
+    vi.spyOn(repository, 'getPaymentById').mockResolvedValue(SUCCESS_DATA as any);
 }
 
 function spyFailureRequest() {

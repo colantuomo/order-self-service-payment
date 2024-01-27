@@ -13,7 +13,6 @@ export async function createNewPayment({ orderId, amount, payerEmail, paymentMet
                 email: payerEmail,
             },
         });
-        console.log(serviceResponse);
         const response = await repository.createPayment(orderId, amount, serviceResponse.id.toString());
         return { status: 200, response };
     } catch (error: any) {

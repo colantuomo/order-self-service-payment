@@ -1,6 +1,6 @@
+import { ICreateNewPaymentCommand } from "../../application/commands/create-new-payment.command";
 import { repository } from "../../infraestructure/repository/payment-repository";
 import { mercadoPagoService } from "../../infraestructure/services/mercado-livre";
-import { ICreateNewPaymentCommand } from "../commands/create-new-payment.command";
 
 export async function createNewPayment({ orderId, amount, payerEmail, paymentMethodId, installments }: ICreateNewPaymentCommand) {
     try {

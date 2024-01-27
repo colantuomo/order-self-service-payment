@@ -1,5 +1,5 @@
+import { IGetPaymentByIdCommand } from "../../application/commands/get-payment-by-id.command";
 import { repository } from "../../infraestructure/repository/payment-repository";
-import { IGetPaymentByIdCommand } from "../commands/get-payment-by-id.command";
 
 export async function getPaymentById({ id }: IGetPaymentByIdCommand) {
     try {

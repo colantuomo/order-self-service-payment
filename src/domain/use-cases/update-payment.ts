@@ -1,7 +1,7 @@
 import { PaymentStatus } from "@prisma/client";
 import { repository } from "../../infraestructure/repository/payment-repository";
 import { mercadoPagoService } from "../../infraestructure/services/mercado-livre";
-import { IUpdatePaymentByExternalIdCommand } from "../commands/update-payment-by-external-id.command";
+import { IUpdatePaymentByExternalIdCommand } from "../../application/commands/update-payment-by-external-id.command";
 
 export async function updatePaymentByExternalId({ id }: IUpdatePaymentByExternalIdCommand) {
     try {

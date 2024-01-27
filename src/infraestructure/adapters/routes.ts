@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createNewPayment, getPaymentById, updatePaymentByExternalId } from '../../domain/use-cases';
-import { ICreateNewPaymentCommand } from '../../domain/commands/create-new-payment.command';
+import { ICreateNewPaymentCommand } from '../../application/commands/create-new-payment.command';
 
 const routes = Router();
 

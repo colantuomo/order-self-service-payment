@@ -2,6 +2,10 @@ import { describe, test, expect, vi } from 'vitest'
 import { repository } from '../../../infraestructure/repository/payment-repository';
 import { getPaymentById } from '../get-payment-by-id';
 
+vi.mock('@prisma/client', () => ({
+    PrismaClient: vi.fn()
+}));
+
 const SUCCESS_DATA = {
     id: 'id-123',
     createdAt: new Date(),

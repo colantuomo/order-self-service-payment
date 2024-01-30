@@ -1,6 +1,10 @@
 # Use an official Node.js runtime as the base image
 FROM node:18-alpine3.18
 
+ENV DATABASE_URL=postgresql://postgres:postgres@database:5432/fiap?schema=public
+ENV MERCADO_PAGO_ACCESS_TOKEN=TEST-2237631272880335-083014-8ac23da20b7770a81b7139a6ab344999-27824690
+ENV MERCADO_PAGO_BASE_URL=https://api.mercadopago.com
+
 # Set the working directory inside the container
 WORKDIR /app
 

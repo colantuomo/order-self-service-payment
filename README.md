@@ -13,9 +13,9 @@ Dentro da pasta `features` na raiz encontra-se a estrutura do BDD utilizando o `
 
 ## Funcionalidades
 
-- **Criar Pagamento:** Facilmente crie novos registros de pagamento com detalhes relevantes.
-- **Atualizar Pagamento:** Atualize informações de pagamento existentes para refletir alterações ou correções.
-- **Recuperar Pagamento:** Recupere detalhes de pagamento com base em identificadores únicos.
+- **Criar Pagamento:** Crie novos pagamentos atrelados a uma orderID
+- **Atualizar Pagamento:** Atualiza o banco local com a informação do saas de pagamento (neste caso o mercado pago)
+- **Recuperar Pagamento:** Traz um pagamento baseado no seu ID
 
 ## Endpoints da API
 

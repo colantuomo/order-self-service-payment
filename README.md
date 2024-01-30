@@ -5,7 +5,7 @@
 O Microserviço de Pagamento para a API Principal de Pedidos é uma parte integrante do sistema que oferece funcionalidades de processamento de pagamentos de forma independente. Este microserviço foi projetado para ser integrado à API principal de pedidos, facilitando a manipulação de informações de pagamento associadas a pedidos específicos.
 
 ## SonarCloud
-![SonarCloud Infos](image-1.png)
+![Sonarcloud](image.png)
 
 ## BDD
 

@@ -1,4 +1,4 @@
-# Microserviço de Pagamento
+# Microserviço de Pagamento (FIAP Pos-Tech)
 
 ## Visão Geral
 
@@ -6,6 +6,10 @@ O Microserviço de Pagamento para a API Principal de Pedidos é uma parte integr
 
 ## SonarCloud
 ![SonarCloud Infos](image-1.png)
+
+## BDD
+
+Dentro da pasta `features` na raiz encontra-se a estrutura do BDD utilizando o `cucumber-js`
 
 ## Funcionalidades
 

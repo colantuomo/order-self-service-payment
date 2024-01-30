@@ -4,6 +4,6 @@ Feature: Create New Payment
     So that I can make a payment for my order
 
   Scenario: Successful payment creation
-    Given I provide a orderId of test-123 and an amount of 50
+    Given I provide a orderId "test123" and an amount 50
     When I submit a new payment order
     Then I should receive my payment details with status pending

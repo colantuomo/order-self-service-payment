@@ -26,6 +26,7 @@ Dentro da pasta `features` na raiz encontra-se a estrutura do BDD utilizando o `
 - **Corpo da Requisição:**
   ```json
   {
+    "orderId": "order-123-id",
     "transaction_amount": 50,
     "description": "Gerar pagamento para pedido de valor 50 - pedido: order-id-123",
     "installments": 1,

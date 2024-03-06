@@ -2,7 +2,7 @@ import { ICreateNewPaymentCommand } from "../../application/commands/create-new-
 import { repository } from "../../infraestructure/repository/payment-repository";
 import { mercadoPagoService } from "../../infraestructure/services/mercado-livre";
 
-export async function createNewPayment({ orderId, amount, payerEmail, paymentMethodId, installments }: ICreateNewPaymentCommand) {
+export async function createNewPaymentUseCase({ orderId, amount, payerEmail, paymentMethodId, installments }: ICreateNewPaymentCommand) {
     try {
         const serviceResponse = await mercadoPagoService.create({
             transaction_amount: amount,

@@ -2,7 +2,7 @@ import { PaymentStatus, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-function getPaymentById(id: string) {
+function getPaymentByIdUseCase(id: string) {
     return prisma.payment.findUniqueOrThrow({ where: { id } });
 }
 
@@ -17,7 +17,7 @@ function createPayment(orderId: string, amount: number, externalPaymentId: strin
     });
 }
 
-async function updatePaymentByExternalId(externalPaymentId: string, status: PaymentStatus) {
+async function updatePaymentByExternalIdUseCase(externalPaymentId: string, status: PaymentStatus) {
     const response = await prisma.payment.findFirstOrThrow({
         where: {
             externalPaymentId: externalPaymentId.toString(),
@@ -31,4 +31,4 @@ async function updatePaymentByExternalId(externalPaymentId: string, status: Paym
     })
 }
 
-export const repository = { getPaymentById, createPayment, updatePaymentByExternalId };
+export const repository = { getPaymentByIdUseCase, createPayment, updatePaymentByExternalIdUseCase };

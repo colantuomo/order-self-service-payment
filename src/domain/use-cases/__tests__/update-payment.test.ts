@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from 'vitest'
 import { mercadoPagoService } from '../../../infraestructure/services/mercado-livre';
-import { updatePaymentByExternalId } from '../update-payment';
+import { updatePaymentByExternalIdUseCase } from '../update-payment';
 import { repository } from '../../../infraestructure/repository/payment-repository';
 
 vi.mock('@prisma/client', () => ({
@@ -15,7 +15,7 @@ function spyMercadoPagoReadPayment() {
 }
 
 function spySuccesfullRequest() {
-    vi.spyOn(repository, 'updatePaymentByExternalId').mockResolvedValue({
+    vi.spyOn(repository, 'updatePaymentByExternalIdUseCase').mockResolvedValue({
         id: 'id-123',
         createdAt: new Date(),
         orderId: 'order-id-123',
@@ -31,10 +31,10 @@ describe('Update payment', () => {
         test('should update payment based on mercado pago payment status', async () => {
             spyMercadoPagoReadPayment();
             spySuccesfullRequest();
-            await updatePaymentByExternalId({ id: '2193892' });
+            await updatePaymentByExternalIdUseCase({ id: '2193892' });
 
             expect(mercadoPagoService.read).toHaveBeenCalledWith(2193892);
-            expect(repository.updatePaymentByExternalId).toHaveBeenCalledWith('2193892', 'PENDING');
+            expect(repository.updatePaymentByExternalIdUseCase).toHaveBeenCalledWith('2193892', 'PENDING');
         });
     });
 });

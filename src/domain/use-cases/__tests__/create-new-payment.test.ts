@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from 'vitest'
 import { mercadoPagoService } from '../../../infraestructure/services/mercado-livre';
-import { createNewPayment } from '../create-new-payment';
+import { createNewPaymentUseCase } from '../create-new-payment';
 
 vi.mock('@prisma/client', () => ({
     PrismaClient: vi.fn()
@@ -19,7 +19,7 @@ describe('Create new payment', () => {
     describe('When a new payment was created with success mercado pago request', () => {
         test('should call mercado pago with correct body', () => {
             spyMercadoPagoCreatePayment();
-            createNewPayment({
+            createNewPaymentUseCase({
                 amount: 50, installments: 1, orderId: 'order-id-123"', payerEmail: 'test@gmail.com', paymentMethodId: 'visa'
             });
 

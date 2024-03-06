@@ -8,13 +8,15 @@
     "test": "vitest --run --coverage --passWithNoTests",
     "test:watch": "vitest --watch",
     "dev": "tsx watch src/infraestructure/server.ts",
-    "build": "tsup src"
+    "build": "tsup src",
+    "docker:dev": "docker compose -f docker-compose-dev.yml up -d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.8.1",
+    "amqplib": "^0.10.3",
     "axios": "^1.6.7",
     "dotenv": "^16.4.0",
     "express": "^4.18.2",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.3.1",
+    "@types/amqplib": "^0.10.5",
     "@types/express": "^4.17.21",
     "@vitest/coverage-v8": "^1.2.2",
     "tsup": "^8.0.1",

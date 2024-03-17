@@ -1,4 +1,4 @@
-import { PaymentStatus } from "@prisma/client";
+import { PaymentStatus } from "../../domain/interfaces";
 
 export enum Queues {
     CREATE_ORDER = 'q-new-order-payment',

@@ -8,6 +8,7 @@ export async function listenAllQueues() {
 }
 
 async function OnNewOrderReceived(message: NewOrderEvent) {
+    console.log('--- New order received', message)
     if (message === undefined && !message) {
         return;
     }
@@ -20,6 +21,7 @@ async function OnNewOrderReceived(message: NewOrderEvent) {
 }
 
 export async function SendPaymentStatusChanged(message: PaymentEvent) {
+    console.log('--- Sending new payment status', message)
     const response = {
         id: message.orderId,
         paymentId: message.id,

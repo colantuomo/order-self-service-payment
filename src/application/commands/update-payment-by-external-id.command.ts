@@ -1,4 +1,4 @@
-import { PaymentStatus } from "@prisma/client";
+import { PaymentStatus } from "../../domain/interfaces";
 
 export interface IUpdatePaymentByExternalIdCommand {
     id: string;

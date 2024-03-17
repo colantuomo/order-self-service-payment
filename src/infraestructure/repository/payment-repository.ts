@@ -1,4 +1,5 @@
-import { PaymentStatus, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+import { PaymentStatus } from "../../domain/interfaces";
 
 const prisma = new PrismaClient();
 

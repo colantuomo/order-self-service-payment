@@ -1,25 +1,29 @@
 import { ICreateNewPaymentCommand } from "../../application/commands/create-new-payment.command";
-import { PaymentEvent, Queues } from "../../application/queues";
+import { NewOrderEvent, PaymentEvent, Queues } from "../../application/queues";
 import { createNewPaymentUseCase } from "../../domain/use-cases";
 import { AmpqQueueService } from "../services/ampq";
 
 export async function listenAllQueues() {
-    await AmpqQueueService.listen(Queues.NEW_ORDER_QUEUE, OnNewOrderReceived);
+    await AmpqQueueService.listen(Queues.CREATE_ORDER, OnNewOrderReceived);
 }
 
-async function OnNewOrderReceived(message: string) {
+async function OnNewOrderReceived(message: NewOrderEvent) {
     if (message === undefined && !message) {
         return;
     }
-
-    const order = JSON.parse(message) as ICreateNewPaymentCommand;
-    await createNewPaymentUseCase(order);
+    const param: ICreateNewPaymentCommand = {
+        id: message.id,
+        amount: message.total_order,
+        payerEmail: message.customer.email,
+    };
+    await createNewPaymentUseCase(param);
 }
 
-export async function SendSucessPaymentStatus(message: PaymentEvent) {
-    await AmpqQueueService.send(Queues.PAYMENT_SUCCESS_QUEUE, JSON.stringify(message));
-}
-
-export async function SendFailedPaymentStatus(message: PaymentEvent) {
-    await AmpqQueueService.send(Queues.PAYMENT_FAILED_QUEUE, JSON.stringify(message));
+export async function SendPaymentStatusChanged(message: PaymentEvent) {
+    const response = {
+        id: message.orderId,
+        paymentId: message.id,
+        status: message.status,
+    };
+    await AmpqQueueService.sendToExchange(Queues.PAYMENT_UPDATE, JSON.stringify(response));
 }

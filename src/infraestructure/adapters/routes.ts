@@ -11,18 +11,16 @@ routes.get('/:id', async (request, res) => {
 
 routes.post('/', async (request, res) => {
     const body: ICreateNewPaymentCommand = {
-        "orderId": request.body.orderId,
-        "amount": request.body.amount,
-        "installments": request.body.installments,
-        "payerEmail": request.body.payerEmail,
-        "paymentMethodId": request.body.paymentMethodId,
+        id: request.body.id,
+        amount: request.body.total_order,
+        payerEmail: request.body.customer.email
     };
     const { status, response } = await createNewPaymentUseCase(body);
     return res.status(status).json(response);
 });
 
 routes.post('/webhook/mercadopago', async (request, res) => {
-    const { status, response } = await updatePaymentByExternalIdUseCase({ id: request.body.data.id });
+    const { status, response } = await updatePaymentByExternalIdUseCase({ id: request.body.id, newStatus: request.body.newStatus });
     return res.status(status).json(response);
 });
 

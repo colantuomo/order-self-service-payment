@@ -30,9 +30,13 @@ class AmqpService implements QueueService {
 
     async send(queue: string, content: string): Promise<void> {
         const channel = await this.conn!.createChannel();
-
         channel.sendToQueue(queue, Buffer.from(content));
     };
+
+    async sendToExchange(exchange: string, content: string): Promise<void> {
+        const channel = await this.conn!.createChannel();
+        channel.publish(exchange, '', Buffer.from(content));
+    }
 }
 
 export const AmpqQueueService = new AmqpService();

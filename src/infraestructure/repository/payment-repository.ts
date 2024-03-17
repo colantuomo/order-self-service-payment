@@ -20,7 +20,7 @@ function createPayment(orderId: string, amount: number, externalPaymentId: strin
 async function updatePaymentByExternalIdUseCase(externalPaymentId: string, status: PaymentStatus) {
     const response = await prisma.payment.findFirstOrThrow({
         where: {
-            externalPaymentId: externalPaymentId.toString(),
+            externalPaymentId: externalPaymentId,
         }
     });
     return prisma.payment.update({

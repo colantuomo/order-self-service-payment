@@ -4,6 +4,10 @@
 
 O Microserviço de Pagamento para a API Principal de Pedidos é uma parte integrante do sistema que oferece funcionalidades de processamento de pagamentos de forma independente. Este microserviço foi projetado para ser integrado à API principal de pedidos, facilitando a manipulação de informações de pagamento associadas a pedidos específicos.
 
+### Video utilizando o padrão SAGA integrado nos projetos
+
+Playlist com os videos [here](https://www.youtube.com/watch?v=jbczUd8j2iI&list=PLYCTn1Be4VEZDL9zT4IxJKcw5vP9bnVRk).
+
 ### SAGA Pattern
 
 Optamos pelo padrão de coreografia de saga porque nossa regra de negócio não é muito complexa e não depende de um grande número de microsserviços para ser executada. Concluímos que o padrão de coreografia seria mais adequado para esta situação. Outro ponto é que, como nosso grupo é composto apenas por 3 pessoas e temos exatamente 3 microsserviços, ficou mais fácil dividir o trabalho.
